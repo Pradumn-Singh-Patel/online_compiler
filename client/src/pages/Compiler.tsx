@@ -13,14 +13,14 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { toast } from "sonner";
-
+import { baseUrl } from "@/utils/baseURL";
 export default function Compiler() {
   const { urlId } = useParams();
   const dispatch = useDispatch();
 
   const loadCode = async () => {
     try {
-      const response = await axios.post("https://online-compiler-lilac.vercel.app/compiler/load", {
+      const response = await axios.post(`${baseUrl}/compiler/load`, {
         urlId: urlId,
       });
       dispatch(updateFullCode(response.data.fullCode));
@@ -38,7 +38,7 @@ export default function Compiler() {
     if (urlId) {
       loadCode();
     }
-  }, [urlId]);
+  },[urlId]);
 
   return (
     <ResizablePanelGroup direction="horizontal">

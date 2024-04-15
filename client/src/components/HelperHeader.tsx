@@ -26,6 +26,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { toast } from "sonner";
+import { baseUrl } from "@/utils/baseURL";
 
 export default function HelperHeader() {
   const [saveLoading, setSaveLoading] = useState<boolean>(false);
@@ -47,7 +48,7 @@ export default function HelperHeader() {
   const handleSaveCode = async () => {
     setSaveLoading(true);
     try {
-      const response = await axios.post("https://online-compiler-lilac.vercel.app/compiler/save", {
+      const response = await axios.post(`${baseUrl}/compiler/save`, {
         fullCode: fullCode,
       });
       navigate(`/compiler/${response.data.url}`, { replace: true });

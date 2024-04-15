@@ -1,0 +1,1 @@
+export const baseUrl = "https://online-compiler-lilac.vercel.app"
