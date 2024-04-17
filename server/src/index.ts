@@ -1,8 +1,8 @@
 import express from "express";
 import cors from "cors";
 import { config } from "dotenv";
-import { dbConnect } from "./lib/dbConnect";
-import { compilerRouter } from "./routes/compilerRouter";
+import { dbConnect } from "./lib/dbConnect.js";
+import { compilerRouter } from "./routes/compilerRouter.js";
 
 const app = express();
 

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { Code } from "../models/Code";
+import { Code } from "../models/Code.js";
 
 export const saveCode = async (req: Request, res: Response) => {
   const { fullCode } = req.body;
