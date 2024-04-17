@@ -1,5 +1,5 @@
 import express from "express";
-import { loadCode, saveCode } from "../controllers/compilerController";
+import { loadCode, saveCode } from "../controllers/compilerController.js";
 
 export const compilerRouter = express.Router();
 
