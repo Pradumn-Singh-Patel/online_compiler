@@ -125,7 +125,7 @@ export default function HelperHeader() {
         )}
       </div>
       <div className="__tab_switcher flex justify-center items-center gap-1">
-        <small>Current Language: </small>
+        <small style={{ paddingLeft: "18px" }}>Current Language: </small>
         <Select
           defaultValue={currentLanguage}
           onValueChange={(value) =>

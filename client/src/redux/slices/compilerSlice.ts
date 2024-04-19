@@ -8,6 +8,7 @@ export interface CompilerSliceStateType {
     javascript: string;
   };
   currentLanguage: "html" | "css" | "javascript";
+  switchBtn: "Code" | "Output"
 }
 
 const initialState: CompilerSliceStateType = {
@@ -33,7 +34,6 @@ const initialState: CompilerSliceStateType = {
       justify-content: center;
       height: 50vh;
       margin: 0;
-    border:1px solid blue;
   }
   
   .container {
@@ -69,12 +69,19 @@ const initialState: CompilerSliceStateType = {
     `,
   },
   currentLanguage: "html",
+  switchBtn: "Code"
 };
 
 const compilerSlice = createSlice({
   name: "compilerSlice",
   initialState,
   reducers: {
+    updateSwitchBtn: (
+      state,
+      action: PayloadAction<CompilerSliceStateType["switchBtn"]>
+    ) => {
+      state.switchBtn = action.payload;
+    },
     updateCurrentLanguage: (
       state,
       action: PayloadAction<CompilerSliceStateType["currentLanguage"]>
@@ -94,5 +101,5 @@ const compilerSlice = createSlice({
 });
 
 export default compilerSlice.reducer;
-export const { updateCurrentLanguage, updateCodeValue, updateFullCode } =
+export const { updateSwitchBtn, updateCurrentLanguage, updateCodeValue, updateFullCode } =
   compilerSlice.actions;
